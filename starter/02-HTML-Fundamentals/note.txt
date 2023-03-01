@@ -1,0 +1,62 @@
+Chapter 1
+
+1. 什么是HTML
+Ans: 超文本标记语言，用于描述网页的内容与结构；
+
+2. 常用合集
+<html>中：
+  <html lang="en"></html>: 该网页的主要语言是英语；
+
+  <meta charset="UTF-8" />: 元数据，数据的数据,我们指定该字符属性为UTF-8
+
+<head>中：
+  <title></title>: 页面标题
+
+  <h1></h1>: 显示标题1号（共6号）
+
+
+
+<body>中：
+  <p></p>: 段落
+
+  <strong></strong>: 强调 
+  NOTE：效果==<b></b>，但strong赋予文本意义，表示更重要，建议使用strong
+
+  <em></em>: 斜体(emphasize)
+  NOTE：效果==<i></i>，但建议使用em
+
+  <ol>: 有序列表（ordered list）
+    <li></li>: 列表中的元素
+  </ol>
+
+  <ul>: 无序列表（unordered list）
+    <li></li>: 列表中的元素
+  </ul>
+
+  <img src="路径" alt="属性" width="图片宽度" height="图片长度"/>: 添加图片
+  NOTE：
+  1. alt中的内容在图片显示不出来的情况下会显示，所以尽量写一下。
+  2. width和Height的值可以根据图片的长宽进行抉择。
+  
+  <a href="URL" target="_blank">URL的网址名字</a>：超链接
+  NOTE：
+  1. 使用超链接的时候，需要用a来代表锚点anchor
+  2. 用href属性来传递网址，如果不指定href，则只显示普通文本，如果还没有想指定的目标网页，可以使用herf="#"
+  3. target属性可以定义当打开目标网页时是否需要跳转，_blank就是重新打开一个新的网页并显示目标网页，默认情况下是覆盖当前网页显示目标网页。
+
+  <nav></nav>: 导航（navigation），什么都不做，只是把里面的内容包含在了一起
+
+
+3. 五个HTML元素
+  <head></head>: 标题部分
+
+  <body></body>: 网页部分
+
+  <header></header>: 位于web文档的顶部，表示这一块是一部分
+
+  <article></article>: 位于文档的中间，表示这一块是网页的内容部分
+
+  <footer></footer>: 页脚，可以添加一些版权声明的部分
+  NOTE: &copy; 在网页中显示的是圈C，这是一种实体字符
+
+4. &rarr; 表示右箭头

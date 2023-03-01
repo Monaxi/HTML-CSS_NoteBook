@@ -1,0 +1,113 @@
+Chapter 2
+
+1. CSS是什么？
+Ans: Cascading Style Sheets，用于描述视觉风格和内容的呈现。CSS包含很多属性，可以用来格式化一些内容，比如字体font、文本text、间距spacing、页面布局layout等。 
+
+2. 内联CSS(inline CSS)、内部CSS(internal CSS)、外部CSS(external CSS)
+NOTE:
+  1) 内联CSS：写在标签里面的，本质上是元素的，能不用就不用！
+      比如<h1 style="color:blue">title</h1>
+  2) 内部CSS: 写在<head></head>中，并包含在<style>></style>内的。
+      比如
+      <head>
+        <style>
+          h1{
+           color: blue;
+          }
+        </style>
+      </head>
+      这种类型适用于没有很多CSS代码的情况
+  3）外部CSS：外部创建.css文件，将代码写在里面，
+      并在.html文件中引用该文件（写在head里，使用link引用）
+
+3. 更改属性的方法 
+  1）想要改变全局中多个元素的相同属性，可以创建一个选择器列表，包含更多元素，比如：h1,h2,h3{这里改属性}
+  2）想要改变某个部分中的多个元素的相同属性，可以创建一个后代选择器，比如：footer p{这里改属性}，这样可以只改变footer中的p的属性
+  3）可以赋予标签以id，这样可以通过在css文件中使用#idname 的方法来避免后代选择器名称过长的问题。
+    NOTE：IDname不可以重复！！！所以一般不怎么用id
+  4）类名可以重复，可以赋予标签class，然后在css文件中使用.classname的方法来更改其属性。class的命名如果超过一个单词，需要用“-”来连接，比如class="related-author"
+
+4. CSS中使用颜色的方法
+  1）RGB表示法
+    比如 rgb(0,255,255)、rgb(244,179,63)
+    RGBA表示法（A表示透明度）
+    比如 rgb(0,255,255,0.3)、rgb(244,179,63,0.7)
+  2）十六进制表示法
+    比如 #00ffff
+    十六进制速记表示法
+    比如 #0ff
+
+5. 一些属性
+  更改背景颜色  background-color: #f7f7f7
+
+  增加边框      border: 5px solid #f7f7f7 || border-top、border-bottom、boder-left、border-right
+
+  更改字体大小  font-size: 26px
+  更改字体样式  font-family: xxxxx
+  更改行间距    line-height: 1.5
+  对齐         text-align: center
+  文本变换      text-transform: uppercase
+  更改列表样式  list-style: XXX 
+  更改文本样式  加粗：font-weight:bold;  倾斜：font-style:italic;
+
+6. pseudo classes(伪类)
+  可在有父子关系的地方使用，比如列表中<ul></ul>中包含很多<li></li>
+  那么就可以在.css文件中这样使用：
+
+  li:first-child{ 更改属性 }来改变列表中第一个子元素
+
+  li:last-child{ 更改属性 }来改变列表中最后一个子元素
+
+  li:nth-child( n ){ 更改属性 }来改变指定位置的子元素,n可以是数字，也可以是odd或者even
+
+  如果不是父元素的第一个元素，即使它是该父元素的第一个该标签也不会生效
+
+7. 设置超链接的样式【LVHA】
+
+  超链接样式的设置  a:link{ 更改属性 }  
+  NOTE 更改的只是有链接的超链接（对于之前设置#的空链接就没什么用了）
+
+  去掉下划线（文字装饰） text-decoration: none;
+  NOTE 这个可以同时定义线、样式、颜色
+
+  访问过的链接设置  a:visited{ 更改属性 }
+
+  鼠标悬停时设置  a:hover{ 更改属性 }
+
+  实际点击时的设置 a:active{ 更改属性 }
+ 
+  NOTE LVHA 比 普通的a 优先级更高
+
+
+ 8. 冲突选择器
+  当都对属性有设置，并且出现冲突时（比如三处设置了不同的字体号），这时会有优先级:
+  高：1. declarations marked! important: 用重要关键字标记的声明
+      2. inline style : 内联CSS
+      3. ID（#）选择器
+      4. class(.)或pseudo class(:)选择器
+      5. element选择器（pm,div,li,...）
+  低：6. 通用选择器(*)
+  如果出现同层次情况，则会选择lastest one
+  
+9. important keyword表示方法
+
+  footer p{
+    color:green !important;
+  }
+  NOTE：这种方法最好少用
+
+10. 继承（inheritence）
+  子元素继承父元素，继承很容易被覆盖。
+  不是所有属性都可以得到继承，主要被继承的是文字相关的属性。
+
+11. 通用选择器
+  不会被继承，主要是给所有元素都设置一个属性
+
+12. 盒子模型
+  定义了元素如何显示在网页上，以及他们的大小。在盒子模型中，每个元素都可以看作是一个矩形框，每个框都可以有内容、边界以及内部和外部的空间
+  padding:内距；margin:外距；(这么翻译更好记)
+
+  final element width(最终元素的宽度) = left border(左边布局) + left padding(左边内距) + width(宽度) + right padding(右边内距) + right border(右边布局)
+
+  final element height(最终元素的高度) = top border(顶部布局) + top padding(顶部内距) + height(高度) + bottom padding(底部内距) + bottom border(底部布局)
+13. 边距收缩（collapsing margins）：当有两个占据相同空间的边距时，只有其中一个在页面上实际可见（较大的那个）
